@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山西铁道职业技术学院 - 机电系团委</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #c62828;
+            --secondary-color: #1a237e;
+            --accent-color: #ff9800;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+            --gray-color: #777;
+            --admin-color: #2e7d32;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo-text h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .logo-text p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 17px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .admin-link {
+            background-color: rgba(46, 125, 50, 0.2);
+            border: 1px solid rgba(46, 125, 50, 0.4);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* 主体内容样式 */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e68900;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-admin {
+            background-color: var(--admin-color);
+        }
+        
+        .btn-admin:hover {
+            background-color: #1b5e20;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #0d1a5e;
+        }
+        
+        /* 视频展示区样式 */
+        .video-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--secondary-color);
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .main-video {
+            flex: 1;
+            min-width: 300px;
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 比例 */
+            height: 0;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-list {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .video-item {
+            display: flex;
+            align-items: center;
+            background-color: var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .video-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-thumb {
+            width: 120px;
+            height: 80px;
+            background-color: #333;
+            flex-shrink: 0;
+            position: relative;
+        }
+        
+        .video-thumb i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 20px;
+        }
+        
+        .video-info {
+            padding: 15px;
+            flex-grow: 1;
+        }
+        
+        .video-info h4 {
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .video-info p {
+            font-size: 14px;
+            color: var(--gray-color);
+        }
+        
+        /* 推文发布区样式 */
+        .blog-section {
+            padding: 60px 0;
+            background-color: var(--light-color);
+        }
+        
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .blog-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: var(--gray-color);
+        }
+        
+        .blog-meta span i {
+            margin-right: 5px;
+            color: var(--primary-color);
+        }
+        
+        .blog-content h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            font-size: 22px;
+        }
+        
+        .blog-content p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .read-more:hover {
+            gap: 10px;
+        }
+        
+        /* 发布推文表单样式 */
+        .post-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            margin-top: 40px;
+            display: none; /* 默认隐藏，登录后显示 */
+        }
+        
+        .post-form.visible {
+            display: block;
+        }
+        
+        .post-form h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+            font-size: 26px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* 登录模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1100;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background-color: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-30px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        
+        .modal.active .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .modal-header {
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .modal-header h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .modal-header p {
+            opacity: 0.9;
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+        
+        /* 管理员后台样式 */
+        .admin-panel {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .admin-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .admin-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .admin-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .admin-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--admin-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 30px;
+        }
+        
+        .admin-card h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .admin-card p {
+            margin-bottom: 20px;
+            color: var(--gray-color);
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+            }
+            
+            nav.active ul {
+                display: flex;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h2 {
+                font-size: 30px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .post-form {
+                padding: 25px;
+            }
+            
+            .modal-content {
+                width: 95%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero h2 {
+                font-size: 26px;
+            }
+            
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-container {
+                flex-direction: column;
+            }
+            
+            .admin-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 消息提示样式 */
+        .message {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-img">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>山西铁道机电系团委</h1>
+                        <p>Shanxi Railway Vocational College - Mechanical & Electrical Department</p>
+                    </div>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="#" class="active">首页</a></li>
+                        <li><a href="#video">视频展示</a></li>
+                        <li><a href="#blog">团委动态</a></li>
+                        <li><a href="#about">关于我们</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                        <li><a href="#" id="adminLoginLink" class="admin-link"><i class="fas fa-user-cog"></i> 管理员登录</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主体内容 -->
+    <main>
+        <!-- 首页横幅 -->
+        <section class="hero">
+            <div class="container">
+                <h2>山西铁道机电系团委</h2>
+                <p>以机电技术为核心，以培养高素质技术技能人才为己任，团结带领机电系广大青年学生，服务青年成长成才，促进校园文化建设。</p>
+                <a href="#blog" class="btn">查看最新动态</a>
+                <a href="#" class="btn btn-admin" id="adminPanelBtn" style="display: none;"><i class="fas fa-tachometer-alt"></i> 管理后台</a>
+            </div>
+        </section>
+
+        <!-- 视频展示区 -->
+        <section class="video-section" id="video">
+            <div class="container">
+                <div class="section-title">
+                    <h2>视频展示</h2>
+                </div>
+                
+                <div class="video-container">
+                    <div class="main-video">
+                        <div class="video-wrapper">
+                            <iframe src="https://player.bilibili.com/player.html?bvid=BV1nA411e7xT" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="video-list">
+                        <div class="video-item" onclick="changeVideo('https://player.bilibili.com/player.html?bvid=BV1nA411e7xT')">
+                            <div class="video-thumb" style="background-color: #1a1a2e;">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-info">
+                                <h4>机电系团委招新宣传片</h4>
+                                <p>2023年团委招新宣传，展示机电系团委风采</p>
+                            </div>
+                        </div>
+                        
+                        <div class="video-item" onclick="changeVideo('https://player.bilibili.com/player.html?bvid=BV1kf4y1P7Uz')">
+                            <div class="video-thumb" style="background-color: #16213e;">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-info">
+                                <h4>机电系技能大赛精彩回顾</h4>
+                                <p>2023年机电系职业技能大赛现场精彩片段</p>
+                            </div>
+                        </div>
+                        
+                        <div class="video-item" onclick="changeVideo('https://player.bilibili.com/player.html?bvid=BV1J44y1q7w3')">
+                            <div class="video-thumb" style="background-color: #0f3460;">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-info">
+                                <h4>机电系志愿服务活动纪实</h4>
+                                <p>机电系团委组织志愿者服务社区活动记录</p>
+                            </div>
+                        </div>
+                        
+                        <div class="video-item" onclick="changeVideo('https://player.bilibili.com/player.html?bvid=BV1Jh411S7j1')">
+                            <div class="video-thumb" style="background-color: #1a1a2e;">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-info">
+                                <h4>机电系优秀团员风采展示</h4>
+                                <p>展示机电系优秀团员的先进事迹和成长历程</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 推文发布区 -->
+        <section class="blog-section" id="blog">
+            <div class="container">
+                <div class="section-title">
+                    <h2>团委动态</h2>
+                </div>
+                
+                <div class="blog-container" id="blogContainer">
+                    <!-- 推文1 -->
+                    <article class="blog-card">
+                        <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> 2023-11-15</span>
+                                <span><i class="far fa-eye"></i> 325</span>
+                            </div>
+                            <h3>机电系团委开展"学习二十大，奋进新征程"主题团日活动</h3>
+                            <p>为深入学习宣传贯彻党的二十大精神，机电系团委组织各团支部开展"学习二十大，奋进新征程"主题团日活动，引导广大青年学生坚定理想信念，勇担时代重任。</p>
+                            <a href="#" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <!-- 推文2 -->
+                    <article class="blog-card">
+                        <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w-1350&q=80');"></div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> 2023-10-28</span>
+                                <span><i class="far fa-eye"></i> 421</span>
+                            </div>
+                            <h3>机电系成功举办第十届职业技能大赛</h3>
+                            <p>机电系第十届职业技能大赛圆满落幕，来自全系各年级的120余名选手参加了数控加工、电气控制、机器人技术等8个赛项的角逐，充分展示了机电系学生的专业技能水平。</p>
+                            <a href="#" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <!-- 推文3 -->
+                    <article class="blog-card">
+                        <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> 2023-10-10</span>
+                                <span><i class="far fa-eye"></i> 289</span>
+                            </div>
+                            <h3>机电系团委组织志愿者开展社区服务活动</h3>
+                            <p>机电系团委组织30余名志愿者走进周边社区，开展家电维修、安全用电宣传等志愿服务活动，深受社区居民好评，展现了我系学生的专业技能和社会责任感。</p>
+                            <a href="#" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                
+                <!-- 发布新推文表单 -->
+                <div class="post-form" id="postForm">
+                    <h3>发布新动态</h3>
+                    <div id="postMessage" class="message"></div>
+                    <form id="newPostForm">
+                        <div class="form-group">
+                            <label for="postTitle">标题</label>
+                            <input type="text" id="postTitle" class="form-control" placeholder="请输入文章标题" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="postContent">内容</label>
+                            <textarea id="postContent" class="form-control" placeholder="请输入文章内容" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="postImage">图片URL（可选）</label>
+                            <input type="text" id="postImage" class="form-control" placeholder="请输入图片链接地址">
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">发布文章</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 管理员后台 -->
+        <section class="admin-panel" id="adminPanel" style="display: none;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>管理员后台</h2>
+                    <p>欢迎回来，管理员！</p>
+                </div>
+                
+                <div class="admin-actions">
+                    <div class="admin-card">
+                        <div class="admin-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <h3>文章管理</h3>
+                        <p>管理已发布的文章，包括编辑、删除和查看统计数据</p>
+                        <button class="btn btn-admin" id="managePostsBtn">管理文章</button>
+                    </div>
+                    
+                    <div class="admin-card">
+                        <div class="admin-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <h3>修改密码</h3>
+                        <p>修改管理员登录密码，需要验证原密码</p>
+                        <button class="btn btn-admin" id="changePasswordBtn">修改密码</button>
+                    </div>
+                    
+                    <div class="admin-card">
+                        <div class="admin-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>视频管理</h3>
+                        <p>管理网站视频内容，添加或删除视频</p>
+                        <button class="btn btn-admin" id="manageVideosBtn">管理视频</button>
+                    </div>
+                </div>
+                
+                <div class="post-form" id="changePasswordForm" style="display: none;">
+                    <h3>修改密码</h3>
+                    <div id="passwordMessage" class="message"></div>
+                    <form id="changePasswordFormInner">
+                        <div class="form-group">
+                            <label for="oldPassword">原密码</label>
+                            <input type="password" id="oldPassword" class="form-control" placeholder="请输入原密码" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="newPassword">新密码</label>
+                            <input type="password" id="newPassword" class="form-control" placeholder="请输入新密码" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirmPassword">确认新密码</label>
+                            <input type="password" id="confirmPassword" class="form-control" placeholder="请再次输入新密码" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-admin" style="width: 100%;">修改密码</button>
+                        <button type="button" class="btn btn-secondary" style="width: 100%; margin-top: 10px;" id="cancelChangePasswordBtn">取消</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 登录模态框 -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-modal" id="closeLoginModal">&times;</button>
+                <h3>管理员登录</h3>
+                <p>请输入管理员账号和密码</p>
+            </div>
+            <div class="modal-body">
+                <div id="loginMessage" class="message"></div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">管理员账号</label>
+                        <input type="text" id="username" class="form-control" placeholder="请输入管理员账号" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <input type="password" id="password" class="form-control" placeholder="请输入密码" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-admin" style="width: 100%;">登录</button>
+                </form>
+                <p style="margin-top: 20px; text-align: center; color: #777; font-size: 14px;">
+                    初始账号：001，密码：06080053
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>关于我们</h3>
+                    <p>山西铁道职业技术学院机电系团委是机电系先进青年的群众组织，担负着团结和教育机电系广大青年学生，服务青年成长成才，促进校园文化建设的重要任务。</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#video">视频展示</a></li>
+                        <li><a href="#blog">团委动态</a></li>
+                        <li><a href="#">团内通知</a></li>
+                        <li><a href="#">团员风采</a></li>
+                        <li><a href="#">活动预告</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 山西省太原市学府街50号</p>
+                        <p><i class="fas fa-phone"></i> 0351-12345678</p>
+                        <p><i class="fas fa-envelope"></i> jdx_tw@srvc.edu.cn</p>
+                        <p><i class="fas fa-clock"></i> 工作日 8:00-12:00, 14:00-18:00</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 山西铁道职业技术学院机电系团委 版权所有</p>
+                <p>地址：山西省太原市学府街50号 邮编：030006</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 管理员账号和密码（初始值）
+        const DEFAULT_ADMIN_USERNAME = "001";
+        const DEFAULT_ADMIN_PASSWORD = "06080053";
+        
+        // 从localStorage获取或初始化管理员信息
+        function getAdminInfo() {
+            const adminInfo = localStorage.getItem('adminInfo');
+            if (adminInfo) {
+                return JSON.parse(adminInfo);
+            } else {
+                // 初始化管理员信息
+                const initialAdminInfo = {
+                    username: DEFAULT_ADMIN_USERNAME,
+                    password: DEFAULT_ADMIN_PASSWORD
+                };
+                localStorage.setItem('adminInfo', JSON.stringify(initialAdminInfo));
+                return initialAdminInfo;
+            }
+        }
+        
+        // 更新管理员密码
+        function updateAdminPassword(newPassword) {
+            const adminInfo = getAdminInfo();
+            adminInfo.password = newPassword;
+            localStorage.setItem('adminInfo', JSON.stringify(adminInfo));
+        }
+        
+        // 检查是否已登录
+        function checkLoginStatus() {
+            return sessionStorage.getItem('isLoggedIn') === 'true';
+        }
+        
+        // 更新UI显示登录状态
+        function updateUIForLoginStatus() {
+            const isLoggedIn = checkLoginStatus();
+            const adminPanelBtn = document.getElementById('adminPanelBtn');
+            const adminLoginLink = document.getElementById('adminLoginLink');
+            const postForm = document.getElementById('postForm');
+            
+            if (isLoggedIn) {
+                // 已登录状态
+                adminPanelBtn.style.display = 'inline-block';
+                adminLoginLink.innerHTML = '<i class="fas fa-sign-out-alt"></i> 退出登录';
+                adminLoginLink.onclick = logout;
+                postForm.classList.add('visible');
+            } else {
+                // 未登录状态
+                adminPanelBtn.style.display = 'none';
+                adminLoginLink.innerHTML = '<i class="fas fa-user-cog"></i> 管理员登录';
+                adminLoginLink.onclick = showLoginModal;
+                postForm.classList.remove('visible');
+            }
+        }
+        
+        // 显示登录模态框
+        function showLoginModal() {
+            document.getElementById('loginModal').classList.add('active');
+            document.getElementById('loginMessage').className = 'message';
+            document.getElementById('loginForm').reset();
+        }
+        
+        // 隐藏登录模态框
+        function hideLoginModal() {
+            document.getElementById('loginModal').classList.remove('active');
+        }
+        
+        // 显示管理员后台
+        function showAdminPanel() {
+            document.getElementById('adminPanel').style.display = 'block';
+            // 滚动到管理员后台
+            document.getElementById('adminPanel').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // 隐藏管理员后台
+        function hideAdminPanel() {
+            document.getElementById('adminPanel').style.display = 'none';
+        }
+        
+        // 显示修改密码表单
+        function showChangePasswordForm() {
+            document.getElementById('changePasswordForm').style.display = 'block';
+            document.getElementById('passwordMessage').className = 'message';
+            document.getElementById('changePasswordFormInner').reset();
+        }
+        
+        // 隐藏修改密码表单
+        function hideChangePasswordForm() {
+            document.getElementById('changePasswordForm').style.display = 'none';
+        }
+        
+        // 登录函数
+        function login(username, password) {
+            const adminInfo = getAdminInfo();
+            
+            if (username === adminInfo.username && password === adminInfo.password) {
+                // 登录成功
+                sessionStorage.setItem('isLoggedIn', 'true');
+                updateUIForLoginStatus();
+                hideLoginModal();
+                showMessage('loginMessage', '登录成功！', 'success');
+                return true;
+            } else {
+                // 登录失败
+                showMessage('loginMessage', '账号或密码错误！', 'error');
+                return false;
+            }
+        }
+        
+        // 退出登录
+        function logout() {
+            sessionStorage.removeItem('isLoggedIn');
+            updateUIForLoginStatus();
+            hideAdminPanel();
+            hideChangePasswordForm();
+            alert('已退出登录');
+        }
+        
+        // 显示消息
+        function showMessage(elementId, text, type) {
+            const element = document.getElementById(elementId);
+            element.textContent = text;
+            element.className = `message ${type} show`;
+            
+            // 3秒后自动隐藏消息
+            setTimeout(() => {
+                element.classList.remove('show');
+            }, 3000);
+        }
+        
+        // 移动端菜单切换
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // 切换视频功能
+        function changeVideo(videoUrl) {
+            const iframe = document.querySelector('.main-video iframe');
+            iframe.src = videoUrl;
+            
+            // 更新活动状态
+            document.querySelectorAll('.video-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        }
+        
+        // 发布新推文功能
+        const newPostForm = document.getElementById('newPostForm');
+        const blogContainer = document.getElementById('blogContainer');
+        
+        newPostForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!checkLoginStatus()) {
+                showMessage('postMessage', '请先登录管理员账号！', 'error');
+                showLoginModal();
+                return;
+            }
+            
+            const title = document.getElementById('postTitle').value;
+            const content = document.getElementById('postContent').value;
+            const imageUrl = document.getElementById('postImage').value || 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';
+            
+            // 创建新的推文元素
+            const newPost = document.createElement('article');
+            newPost.className = 'blog-card';
+            newPost.innerHTML = `
+                <div class="blog-img" style="background-image: url('${imageUrl}');"></div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> ${new Date().toISOString().split('T')[0]}</span>
+                        <span><i class="far fa-eye"></i> 0</span>
+                    </div>
+                    <h3>${title}</h3>
+                    <p>${content.length > 100 ? content.substring(0, 100) + '...' : content}</p>
+                    <a href="#" class="read-more">阅读更多 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            `;
+            
+            // 将新推文插入到最前面
+            blogContainer.prepend(newPost);
+            
+            // 重置表单
+            newPostForm.reset();
+            
+            // 显示成功消息
+            showMessage('postMessage', '文章发布成功！', 'success');
+            
+            // 滚动到新发布的文章
+            newPost.scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // 修改密码功能
+        const changePasswordForm = document.getElementById('changePasswordFormInner');
+        
+        changePasswordForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const oldPassword = document.getElementById('oldPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // 获取当前管理员信息
+            const adminInfo = getAdminInfo();
+            
+            // 验证原密码
+            if (oldPassword !== adminInfo.password) {
+                showMessage('passwordMessage', '原密码错误！', 'error');
+                return;
+            }
+            
+            // 验证新密码长度
+            if (newPassword.length < 6) {
+                showMessage('passwordMessage', '新密码长度至少为6位！', 'error');
+                return;
+            }
+            
+            // 验证两次输入的新密码是否一致
+            if (newPassword !== confirmPassword) {
+                showMessage('passwordMessage', '两次输入的新密码不一致！', 'error');
+                return;
+            }
+            
+            // 更新密码
+            updateAdminPassword(newPassword);
+            
+            // 显示成功消息
+            showMessage('passwordMessage', '密码修改成功！', 'success');
+            
+            // 重置表单
+            changePasswordForm.reset();
+            
+            // 3秒后隐藏表单
+            setTimeout(() => {
+                hideChangePasswordForm();
+            }, 3000);
+        });
+        
+        // 事件监听器设置
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化UI状态
+            updateUIForLoginStatus();
+            
+            // 登录表单提交
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                login(username, password);
+            });
+            
+            // 管理员后台按钮
+            document.getElementById('adminPanelBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                if (checkLoginStatus()) {
+                    showAdminPanel();
+                } else {
+                    showLoginModal();
+                }
+            });
+            
+            // 修改密码按钮
+            document.getElementById('changePasswordBtn').addEventListener('click', function() {
+                showChangePasswordForm();
+            });
+            
+            // 取消修改密码按钮
+            document.getElementById('cancelChangePasswordBtn').addEventListener('click', function() {
+                hideChangePasswordForm();
+            });
+            
+            // 管理文章按钮（示例）
+            document.getElementById('managePostsBtn').addEventListener('click', function() {
+                alert('文章管理功能正在开发中...');
+            });
+            
+            // 管理视频按钮（示例）
+            document.getElementById('manageVideosBtn').addEventListener('click', function() {
+                alert('视频管理功能正在开发中...');
+            });
+            
+            // 关闭登录模态框
+            document.getElementById('closeLoginModal').addEventListener('click', hideLoginModal);
+            
+            // 点击模态框背景关闭
+            document.getElementById('loginModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    hideLoginModal();
+                }
+            });
+            
+            // 平滑滚动到锚点
+            document.querySelectorAll('nav a:not(#adminLoginLink)').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId && targetId.startsWith('#')) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                            
+                            // 移动端关闭菜单
+                            if (mainNav.classList.contains('active')) {
+                                mainNav.classList.remove('active');
+                                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // 初始化：设置第一个视频为活动状态
+            document.querySelector('.video-item').classList.add('active');
+        });
+    </script>
+</body>
+</html>
